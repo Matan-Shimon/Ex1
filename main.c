@@ -27,7 +27,7 @@ int main()
         }
     }
     printf("\n");
-    printf("The Palindromes are: ");
+    printf("The Palindromes are:");
     for (int i = min; i <= max; i++)
     {
         if (isPalindrome(i) == 1)
@@ -36,7 +36,7 @@ int main()
         }
     }
     printf("\n");
-    printf("The Prime numbers are: ");
+    printf("The Prime numbers are:");
     for (int i = min; i <= max; i++)
     {
         if (isPrime(i) == 1)
@@ -45,7 +45,7 @@ int main()
         }
     }
     printf("\n");
-    printf("The Strong numbers are: ");
+    printf("The Strong numbers are:");
     for (int i = min; i <= max; i++)
     {
         if (isStrong(i) == 1)
