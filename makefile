@@ -5,8 +5,6 @@ maindloop: main.o
 	gcc -Wall -g -o maindloop main.o ./libclassloops.so
 mains: main.o libclassrec.a
 	gcc -Wall -g -o mains main.o libclassrec.a
-mainsloop: main.o libclassrec.a
-	gcc -Wall -g -o mainsloop main.o libclassloops.a -lm
 loopd: libclassloops.so
 recursived: libclassrec.so
 loops: libclassloops.a

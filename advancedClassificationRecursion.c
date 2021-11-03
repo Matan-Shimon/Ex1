@@ -1,35 +1,47 @@
 #include "NumClass.h"
-int isPalindrome(int num)
+int power(int a, int b)
 {
-    int num_copy = num;
-    int num_of_digits = 0;
-    while (num_copy)
+    int sum = 1;
+    for (int i = 0; i < b; i++)
     {
-        num_of_digits += 1;
-        num_copy = num_copy / 10;
+        sum = sum * a;
     }
-    if (num_of_digits > 1)
+    return sum;
+}
+int isPalindromeRecursive(int zero, int number, int lenght)
+{
+    if (number == 0)
     {
-        int first_digit = num;
-        int moduling = 10;
-        for (int i = 1; i < num_of_digits; i++)
-        {
-            first_digit = first_digit / 10;
-            moduling = moduling * 10;
-        }
-        int last_digit = num % 10;
-        if (first_digit != last_digit)
-        {
-            return 0;
-        }
-        // removing the first and last digit
-        num = num % moduling; // removing first digit
-        num = num % 10;       // removing last digit
-        return isPalindrome(num);
+        return zero;
     }
     else
     {
+        int keep = number % 10;
+        zero = zero + keep * power(10, lenght - 1);
+        number = number / 10;
+        lenght--;
+        return isPalindromeRecursive(zero, number, lenght);
+    }
+}
+
+int isPalindrome(int number)
+{
+    int lenght = 0;
+    int temp = number;
+    int number2 = 0;
+    while (temp > 0)
+    {
+        lenght++;
+        temp = temp / 10;
+    }
+    number2 = isPalindromeRecursive(number2, number, lenght);
+    if (number2 == number)
+    {
         return 1;
+    }
+    else
+    {
+        return 0;
     }
 }
 
